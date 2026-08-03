@@ -7,8 +7,7 @@ class Solution {
             for(int j=0;j<sb.length();j++){
                 sum+=weights[sb.charAt(j)-'a'];
             }
-            sum=sum%26;
-            s.append((char)(122-sum));
+            s.append((char)('z'-(sum%26)));
         }
         return s.toString();
     }
