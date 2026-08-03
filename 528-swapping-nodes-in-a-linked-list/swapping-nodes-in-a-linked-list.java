@@ -31,13 +31,8 @@ class Solution {
         curr=temp;
         for(int j=0;j<n;j++){
             ListNode newNode=new ListNode(a[j]);
-            if(curr==null){
-                curr=newNode;
-            }
-            while(curr.next!=null){
-                curr=curr.next;
-            }
             curr.next=newNode;
+            curr=curr.next;
         }
         return temp.next;
     }
