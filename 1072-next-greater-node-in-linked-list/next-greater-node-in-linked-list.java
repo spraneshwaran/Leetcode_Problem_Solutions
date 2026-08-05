@@ -26,6 +26,10 @@ class Solution {
             if(max==a.get(i)) a.set(i,0);
             else a.set(i,max);
         }
-        return a.stream().mapToInt(Integer::intValue).toArray();
+        int rp[]=new int[a.size()];
+        for(int i=0;i<a.size();i++){
+            rp[i]=a.get(i);
+        }
+        return rp;
     }
 }
