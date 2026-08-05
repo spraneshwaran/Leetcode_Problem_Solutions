@@ -10,30 +10,22 @@
  */
 class Solution {
     public int[] nextLargerNodes(ListNode head) {
-        ListNode curr=head;
-        int n=0;
-        while(curr!=null){
-            n++;
-            curr=curr.next;
+        List<Integer> a=new ArrayList<>();
+        while(head!=null){
+            a.add(head.val);
+            head=head.next;
         }
-        int a[]=new int[n];
-        curr=head;
-        int ind=0;
-        while(curr!=null){
-            a[ind++]=curr.val;
-            curr=curr.next;
-        }
-        for(int i=0;i<a.length;i++){
-            int max=a[i];
-            for(int j=i+1;j<a.length;j++){
-                if(a[j]>max){
-                    max=a[j];
+        for(int i=0;i<a.size();i++){
+            int max=a.get(i);
+            for(int j=i+1;j<a.size();j++){
+                if(a.get(j)>max){
+                    max=a.get(j);
                     break;
                 }
             }
-            if(max==a[i]) a[i]=0;
-            else a[i]=max;
+            if(max==a.get(i)) a.set(i,0);
+            else a.set(i,max);
         }
-        return a;
+        return a.stream().mapToInt(Integer::intValue).toArray();
     }
 }
