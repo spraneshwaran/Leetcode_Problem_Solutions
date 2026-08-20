@@ -1,19 +1,11 @@
 class Solution {
     public boolean canBeEqual(String s1, String s2) {
-        if(s1.equals(s2)) return true;
-        char a[]=s1.toCharArray();
-        char temp=a[0];
-        a[0]=a[2];
-        a[2]=temp;
-        if(String.valueOf(a).equals(s2)) return true;
-        char b[]=s1.toCharArray();
-        temp=b[1];
-        b[1]=b[3];
-        b[3]=temp;
-        if(String.valueOf(b).equals(s2)) return true;
-        temp=b[0];
-        b[0]=b[2];
-        b[2]=temp;
-        return (String.valueOf(b).equals(s2))?true:false;
+        var s1Array = s1.toCharArray();
+        var s2Array = s2.toCharArray();
+        var a02 = s1Array[0] == s2Array[2] && s1Array[2] == s2Array[0];
+        var b02 = s1Array[0] == s2Array[0] && s1Array[2] == s2Array[2];
+        var a13 = s1Array[1] == s2Array[3] && s1Array[3] == s2Array[1];
+        var b13 = s1Array[1] == s2Array[1] && s1Array[3] == s2Array[3];
+        return (a02 || b02) && (a13 || b13);
     }
 }
