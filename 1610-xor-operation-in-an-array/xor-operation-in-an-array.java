@@ -1,13 +1,9 @@
 class Solution {
     public int xorOperation(int n, int start) {
-        int a[]=new int[n];
-        for(int i=0;i<n;i++){
-            a[i]=start+2*i;
-        }
-        start=a[0];
+        int op=start+2*0;
         for(int i=1;i<n;i++){
-            start^=a[i];
+            op^=start+2*i;
         }
-        return start;
+        return op;
     }
 }
