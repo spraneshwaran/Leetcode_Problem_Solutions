@@ -6,7 +6,6 @@ class Solution {
             sb.append(str[i]);
             sb.append(" ");
         }
-        sb.deleteCharAt(sb.length()-1);
-        return sb.toString();
+        return sb.toString().trim();
     }
 }
