@@ -1,5 +1,5 @@
-
-SELECT *
-FROM Users
-WHERE mail REGEXP '^[A-Za-z][A-Za-z0-9_.-]*@leetcode[.]com$'
-  AND BINARY SUBSTRING_INDEX(mail, '@', -1) = BINARY 'leetcode.com';
+select *
+from Users
+where regexp_like(mail,
+'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com$','c'
+);
